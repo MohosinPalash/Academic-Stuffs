@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main(void)
+{
+//Single /Line Comment
+printf("Hello");
+/*Multiline
+comm/net*/
+printf("World");
+return 0;
+}
