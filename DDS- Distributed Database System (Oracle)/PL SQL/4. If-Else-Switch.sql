@@ -1,0 +1,70 @@
+SET SERVEROUTPUT ON;
+
+-- IF
+
+DECLARE
+	NUM int := 7;
+
+BEGIN
+	IF MOD(NUM, 2) = 0 THEN
+		DBMS_OUTPUT.PUT_LINE('EVEN');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('ODD');
+	END IF;
+END;
+/
+
+-- ELSE IF
+
+DECLARE
+	NUM money.taka%TYPE;
+
+BEGIN
+	select taka into NUM from money where id = 1;
+	IF MOD(NUM, 3) = 0 THEN
+		DBMS_OUTPUT.PUT_LINE('ZERO');
+	ELSIF MOD(NUM, 3) = 1 THEN
+		DBMS_OUTPUT.PUT_LINE('ONE');
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('TWO');
+	END IF;
+END;
+/
+
+-- SWITCH CASE [Format-1]
+
+DECLARE
+	NUM money.taka%TYPE;
+
+BEGIN
+	select taka into NUM from money where id = 1;
+	
+	CASE 
+		WHEN MOD(NUM,3) = 0 THEN
+			DBMS_OUTPUT.PUT_LINE('ZERO');
+		WHEN MOD(NUM,3) = 1 THEN
+			DBMS_OUTPUT.PUT_LINE('ONE');
+		ELSE
+			DBMS_OUTPUT.PUT_LINE('TWO');
+	END CASE;
+END;
+/
+
+-- SWITCH CASE [Format-2]
+
+DECLARE
+	NUM money.taka%TYPE;
+
+BEGIN
+	select taka into NUM from money where id = 1;
+	
+	CASE MOD(NUM,3)
+		WHEN 0 THEN
+			DBMS_OUTPUT.PUT_LINE('ZERO');
+		WHEN 1 THEN
+			DBMS_OUTPUT.PUT_LINE('ONE');
+		ELSE
+			DBMS_OUTPUT.PUT_LINE('TWO');
+	END CASE;
+END;
+/

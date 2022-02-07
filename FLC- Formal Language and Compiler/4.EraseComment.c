@@ -12,11 +12,7 @@ int main (void)
     f1 = fopen("storeCode.txt","w");
     fputs(input_code, f1);
     fclose(f1);
-
-
     char c;
-
-
     f1 = fopen("storeCode.txt","r");
     f2 = fopen("eraseComment.txt","w");
 

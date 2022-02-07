@@ -1,0 +1,18 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+	NUM money.id%TYPE := 0;
+
+BEGIN
+	SELECT max(id) into NUM from money;
+	DBMS_OUTPUT.PUT_LINE(NUM);
+	
+	FOR i IN 1..5
+	LOOP
+		INSERT INTO money VALUES (i+NUM, 'D', 500);
+	END LOOP;
+
+END;
+/
+
+SELECT * FROM money;
